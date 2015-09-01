@@ -12,9 +12,9 @@ import org.apache.log4j.PatternLayout;
 import org.apache.log4j.RollingFileAppender;
 
 public class InitLog4j extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-	
-	@Override
+    private static final long serialVersionUID = 1L;
+    
+    @Override
     public void init() throws ServletException {
         String initPath = getInitParameter("logPath");
         String logPath = "/WEB-INF/logs/error.log";
@@ -29,7 +29,7 @@ public class InitLog4j extends HttpServlet {
         initLogger("org.apache.commmons.beanutils", appender, Level.DEBUG);
     }
        
-	private void initLogger(String name, FileAppender appender, Level level) {
+    private void initLogger(String name, FileAppender appender, Level level) {
         Logger logger;
         if (name == null) {
             logger = Logger.getRootLogger();
@@ -41,7 +41,7 @@ public class InitLog4j extends HttpServlet {
         logger.info("Starting " + logger.getName());
     }
 
-	private FileAppender getAppender(String fileName) {
+    private FileAppender getAppender(String fileName) {
         RollingFileAppender appender = null;
         try {
             appender = new RollingFileAppender(new PatternLayout(

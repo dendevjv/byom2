@@ -9,26 +9,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import ru.denispv.byom2.shared.ButtonMethod;
+import ru.denispv.byom2.shared.HelperBaseValidator;
 import ru.denispv.byom2.shared.SessionData;
 import ru.denispv.byom2.model.Book;
-import ru.denispv.byom2.shared.HelperBase;
 
-public class ControllerHelper extends HelperBase {
+public class ControllerHelper extends HelperBaseValidator {
     private static final String JSP_BASE = "/WEB-INF/jsp/";
     
-	private Book data;
-
-	public ControllerHelper(HttpServlet servlet, HttpServletRequest request,
-			HttpServletResponse response) {
-		super(servlet, request, response);
-		data = new Book();
-	}
-
-	public Object getData() {
-		return data;
-	}
+    private Book data;
+    
+    public ControllerHelper(HttpServlet servlet, HttpServletRequest request,
+            HttpServletResponse response) {
+        super(servlet, request, response);
+        data = new Book();
+    }
+    
+    public Object getData() {
+    	return data;
+    }
 	
-	@ButtonMethod(buttonName="editButton", isDefault=true)
+    @ButtonMethod(buttonName="editButton", isDefault=true)
     public String editMethod() {
         return jspLocation("EditBook.jsp");
     }
@@ -36,7 +36,13 @@ public class ControllerHelper extends HelperBase {
     @ButtonMethod(buttonName="confirmButton")
     public String confirmMethod() {
         fillBeanFromRequest(data);
-        return jspLocation("ConfirmBook.jsp");
+        String page;
+        if (isValid(data)) {
+            page = "ConfirmBook.jsp";
+        } else {
+            page = "EditBook.jsp";
+        }
+        return jspLocation(page);
     }
     
     @ButtonMethod(buttonName="processButton")
@@ -44,14 +50,14 @@ public class ControllerHelper extends HelperBase {
         return jspLocation("ProcessBook.jsp");
     }
 	
-	public void doGet() throws ServletException, IOException {
-	    addHelperToSession("helper", SessionData.READ);
-	    
-		String address = executeButtonMethod();
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-		dispatcher.forward(request, response);
-	}
+    public void doGet() throws ServletException, IOException {
+        addHelperToSession("helper", SessionData.READ);
+        
+        String address = executeButtonMethod();
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+        dispatcher.forward(request, response);
+    }
 
     @Override
     protected void copyFromSession(Object sessionHelper) {
