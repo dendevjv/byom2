@@ -14,5 +14,12 @@ public class Controller extends HttpServlet {
         ControllerHelper helper = new ControllerHelper(this, request, response);
         helper.doGet();
     }
+    
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        ControllerHelper helper = new ControllerHelper(this, req, resp);
+        helper.doPost();
+    }
 
 }

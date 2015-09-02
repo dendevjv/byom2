@@ -15,7 +15,7 @@
         Source: ${helper.data.source}<br />
         Persistence will be implemented later
     </p>
-    <form action="Controller">
+    <form action="Controller" method="post">
         <p>
             <input type="submit" name="editButton" value="Edit">
         </p>

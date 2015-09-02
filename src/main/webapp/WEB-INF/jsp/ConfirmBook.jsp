@@ -22,7 +22,7 @@
         please select <em>Process</em>.
     </p>
 
-    <form action="Controller">
+    <form action="Controller" method="post">
         <p>
             <input type="submit" name="editButton" value="Edit">
             <input type="submit" name="processButton" value="Process">

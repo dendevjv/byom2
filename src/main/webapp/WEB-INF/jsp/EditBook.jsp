@@ -8,7 +8,7 @@
 </head>
 <body>
     <h3>Edit Book</h3>
-    <form action="Controller">
+    <form action="Controller" method="post">
         <p>
             Title ${helper.errors.title}: <input type="text" name="title"
                 value="${helper.data.title}" />

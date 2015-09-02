@@ -51,6 +51,15 @@ public class ControllerHelper extends HelperBaseValidator {
     }
 	
     public void doGet() throws ServletException, IOException {
+        addHelperToSession("helper", SessionData.IGNORE);
+        
+        String address = editMethod();
+        
+        RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+        dispatcher.forward(request, response);
+    }
+    
+    public void doPost() throws ServletException, IOException {
         addHelperToSession("helper", SessionData.READ);
         
         String address = executeButtonMethod();
