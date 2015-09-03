@@ -51,6 +51,11 @@
 	    <version>1.7.12</version>
 	</dependency>
 	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-log4j12</artifactId>
+	    <version>1.7.12</version>
+	</dependency>
+	<dependency>
 	    <groupId>javax.validation</groupId>
 	    <artifactId>validation-api</artifactId>
 	    <version>1.1.0.Final</version>
@@ -59,6 +64,91 @@
 	    <groupId>org.hibernate</groupId>
 	    <artifactId>hibernate-validator-annotation-processor</artifactId>
 	    <version>5.2.1.Final</version>
+	</dependency>
+	<dependency>
+	    <groupId>mysql</groupId>
+	    <artifactId>mysql-connector-java</artifactId>
+	    <version>5.1.36</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>4.1.9.Final</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-annotations</artifactId>
+	    <version>3.5.6-Final</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.hibernate.common</groupId>
+	    <artifactId>hibernate-commons-annotations</artifactId>
+	    <version>4.0.4.Final</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.antlr</groupId>
+	    <artifactId>antlr</artifactId>
+	    <version>3.4</version>
+	</dependency>
+	<dependency>
+	    <groupId>cglib</groupId>
+	    <artifactId>cglib</artifactId>
+	    <version>3.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.directory.studio</groupId>
+	    <artifactId>org.dom4j.dom4j</artifactId>
+	    <version>1.6.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.hibernate.javax.persistence</groupId>
+	    <artifactId>hibernate-jpa-2.0-api</artifactId>
+	    <version>1.0.1.Final</version>
+	</dependency>
+	<!-- <dependency>
+	    <groupId>jdbc</groupId>
+	    <artifactId>jdbc-stdext</artifactId>
+	    <version>2.0</version>
+	</dependency>  -->
+	<!-- <dependency>
+	    <groupId>javax.sql</groupId>
+	    <artifactId>jdbc-stdext</artifactId>
+	    <version>2.0</version>
+	</dependency>  -->
+	<dependency>
+	    <groupId>c3p0</groupId>
+	    <artifactId>c3p0</artifactId>
+	    <version>0.9.1.2</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.javassist</groupId>
+	    <artifactId>javassist</artifactId>
+	    <version>3.20.0-GA</version>
+	</dependency>
+	<dependency>
+	    <groupId>javax.transaction</groupId>
+	    <artifactId>jta</artifactId>
+	    <version>1.1</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.taglibs</groupId>
+	    <artifactId>taglibs-standard-compat</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.taglibs</groupId>
+	    <artifactId>taglibs-standard-impl</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.taglibs</groupId>
+	    <artifactId>taglibs-standard-jstlel</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+	<dependency>
+	    <groupId>org.apache.taglibs</groupId>
+	    <artifactId>taglibs-standard-spec</artifactId>
+	    <version>1.2.5</version>
 	</dependency>
   </dependencies>
   <build>

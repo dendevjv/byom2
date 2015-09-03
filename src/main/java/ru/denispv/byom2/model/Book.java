@@ -1,9 +1,18 @@
 package ru.denispv.byom2.model;
 
+import java.io.Serializable;
+
+import javax.persistence.Entity;
+import javax.persistence.Lob;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
-public class Book {
+import ru.denispv.byom2.shared.PersistentBase;
+
+@Entity
+public class Book extends PersistentBase implements Serializable {
+    private static final long serialVersionUID = 1025086356235419730L;
+    
     private String title;
     private String description;
     private String source;
@@ -14,6 +23,7 @@ public class Book {
         return title;
     }
 
+    @Lob
     @Pattern(regexp=".*\\S.*", message="cannot be empty")
     @NotNull
     public final String getDescription() {

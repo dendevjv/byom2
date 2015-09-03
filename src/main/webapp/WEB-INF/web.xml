@@ -25,6 +25,10 @@
   		<param-name>logLevel</param-name>
   		<param-value>WARN</param-value>
   	</init-param>
+  	<init-param>
+  		<param-name>createTables</param-name>
+  		<param-value>true</param-value>
+  	</init-param>
   </servlet>
   
   <servlet-mapping>

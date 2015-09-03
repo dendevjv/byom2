@@ -1,6 +1,7 @@
 package ru.denispv.byom2.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import ru.denispv.byom2.shared.ButtonMethod;
 import ru.denispv.byom2.shared.HelperBaseValidator;
+import ru.denispv.byom2.shared.HibernateHelper;
 import ru.denispv.byom2.shared.SessionData;
 import ru.denispv.byom2.model.Book;
 
@@ -24,8 +26,21 @@ public class ControllerHelper extends HelperBaseValidator {
         data = new Book();
     }
     
+    static public void initHibernate(HttpServlet servlet) {
+        boolean createTables = Boolean.parseBoolean(servlet.getInitParameter("createTables"));
+        if (createTables) {
+            HibernateHelper.createTable(Book.class);
+        }
+        
+        HibernateHelper.initSessionFactory(Book.class);
+    }
+    
     public Object getData() {
     	return data;
+    }
+    
+    public void setData(Book data) {
+        this.data = data;
     }
 	
     @ButtonMethod(buttonName="editButton", isDefault=true)
@@ -47,6 +62,12 @@ public class ControllerHelper extends HelperBaseValidator {
     
     @ButtonMethod(buttonName="processButton")
     public String processMethod() {
+        if (!isValid(getData())) {
+            return jspLocation("Expired.jsp");
+        }
+        HibernateHelper.updateDB(getData());
+        List<Object> list = HibernateHelper.getListData(getData().getClass());
+        request.setAttribute("database", list);
         return jspLocation("ProcessBook.jsp");
     }
 	
